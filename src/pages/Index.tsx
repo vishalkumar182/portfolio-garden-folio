@@ -68,7 +68,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent" />
         <div className={`max-w-4xl mx-auto z-10 ${isLoaded ? 'animate-fade-up' : 'opacity-0'}`}>
           <span className="text-sm font-medium text-muted-foreground mb-6 block">Hi, my name is</span>
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-gradient">Your Name</h1>
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-gradient">Vishal Kumar</h1>
           <h2 className="text-3xl md:text-5xl font-bold text-muted-foreground mb-8">I build things for the web.</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mb-12">
             I'm a software engineer specializing in building exceptional digital experiences.
@@ -105,7 +105,7 @@ const Index = () => {
             <CardContent className="grid md:grid-cols-2 gap-12 p-6">
               <div>
                 <p className="text-muted-foreground mb-4">
-                  Hello! My name is Your Name and I enjoy creating things that live on the internet. 
+                  Hello! My name is Vishal Kumar and I enjoy creating things that live on the internet. 
                   My interest in web development started back in 2012 when I decided to try editing custom 
                   Tumblr themes — turns out hacking together a custom reblog button taught me a lot about HTML & CSS!
                 </p>
@@ -145,32 +145,29 @@ const Index = () => {
               >
                 <div className={`grid md:grid-cols-12 gap-4 p-6 ${project.reversed ? 'md:rtl' : ''}`}>
                   <div className="md:col-span-7 relative md:ltr">
-                    <div className="relative rounded-lg overflow-hidden h-[300px]">
-                      <img 
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-background/50 group-hover:bg-background/30 transition-colors duration-300" />
+                    <div className="h-48 flex items-center justify-center glass-card rounded-lg group-hover:scale-105 transition-transform duration-500">
+                      <div className="text-6xl text-primary/50 group-hover:text-primary/70 transition-colors duration-300">
+                        {project.icon}
+                      </div>
                     </div>
                   </div>
                   <div className="md:col-span-5 md:px-6 md:ltr">
                     <CardHeader className="p-0">
                       <div className="flex items-center gap-2 mb-2">
                         {project.icon}
-                        <CardDescription className="text-sm text-muted-foreground">
+                        <CardDescription className="text-sm text-muted-foreground animate-fade-in">
                           Featured Project
                         </CardDescription>
                       </div>
-                      <CardTitle className="text-2xl font-bold">{project.title}</CardTitle>
+                      <CardTitle className="text-2xl font-bold animate-fade-up">{project.title}</CardTitle>
                     </CardHeader>
                     <CardContent className="p-0 mt-4">
-                      <div className="glass-card p-6 rounded-lg mb-4 transform transition-all duration-300 hover:scale-[1.02]">
+                      <div className="glass-card p-6 rounded-lg mb-4 transform transition-all duration-300 hover:scale-[1.02] animate-fade-up">
                         <p className="text-muted-foreground">
                           {project.description}
                         </p>
                       </div>
-                      <ul className="flex flex-wrap gap-3 text-sm text-muted-foreground mb-4">
+                      <ul className="flex flex-wrap gap-3 text-sm text-muted-foreground mb-4 animate-fade-up">
                         {project.tags.map((tag, tagIndex) => (
                           <li 
                             key={tagIndex}
