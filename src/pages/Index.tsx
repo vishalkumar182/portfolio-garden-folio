@@ -1,6 +1,5 @@
-
 import { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, ChevronRight } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, ChevronRight, Smartphone, Bot, Leaf, Cloud, ShoppingCart } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -8,13 +7,63 @@ import { Separator } from "@/components/ui/separator";
 const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
+  const projects = [
+    {
+      title: "Hostel Management App",
+      description: "A mobile app for hostel management, allowing users to book rooms, track amenities, manage complaints, and view notices. Built using Flutter and Firebase for seamless backend integration.",
+      image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+      tags: ["Flutter", "Firebase", "Dart", "Mobile Development"],
+      icon: <Smartphone className="h-5 w-5" />,
+      reversed: false
+    },
+    {
+      title: "AI-Powered Tweet Generator",
+      description: "An AI-driven platform that helps users generate engaging Twitter posts. Built using React with AI integration to suggest tweets based on trends.",
+      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+      tags: ["React", "AI", "Node.js", "API Integration"],
+      icon: <Bot className="h-5 w-5" />,
+      reversed: true
+    },
+    {
+      title: "AI Chatbot",
+      description: "A smart chatbot using Google's Gemini API to assist users with queries, provide recommendations, and simulate human-like conversations.",
+      image: "https://images.unsplash.com/photo-1527430253228-e93688616381?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+      tags: ["Next.js", "Gemini API", "TypeScript", "TailwindCSS"],
+      icon: <Bot className="h-5 w-5" />,
+      reversed: false
+    },
+    {
+      title: "Plant Identifier",
+      description: "An AI-powered web app that helps users identify plants and diagnose diseases using image recognition, built with Next.js and the Gemini API.",
+      image: "https://images.unsplash.com/photo-1446071103084-c257b5f70672?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+      tags: ["Next.js", "AI", "Image Recognition", "Gemini API"],
+      icon: <Leaf className="h-5 w-5" />,
+      reversed: true
+    },
+    {
+      title: "Weather App",
+      description: "A simple yet effective weather forecasting app that fetches live weather updates using API integration and provides temperature, humidity, and forecasts.",
+      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+      tags: ["HTML", "CSS", "JavaScript", "Weather API"],
+      icon: <Cloud className="h-5 w-5" />,
+      reversed: false
+    },
+    {
+      title: "E-Commerce Website",
+      description: "A full-fledged e-commerce platform with features like product listing, add to cart, order tracking, and authentication. Built using React, MongoDB, and Firebase.",
+      image: "https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+      tags: ["React", "MongoDB", "Firebase", "Node.js"],
+      icon: <ShoppingCart className="h-5 w-5" />,
+      reversed: true
+    }
+  ];
+
   useEffect(() => {
     setIsLoaded(true);
   }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent" />
         <div className={`max-w-4xl mx-auto z-10 ${isLoaded ? 'animate-fade-up' : 'opacity-0'}`}>
@@ -45,7 +94,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section */}
       <section className="py-20 px-6" id="about">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-4 mb-12">
@@ -82,7 +130,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Projects Section */}
       <section className="py-20 px-6" id="projects">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-4 mb-12">
@@ -90,59 +137,70 @@ const Index = () => {
             <h2 className="text-2xl font-bold">Some Things I've Built</h2>
             <Separator className="flex-grow" />
           </div>
-          <div className="space-y-24">
-            {/* Project 1 */}
-            <Card className="glass-card group">
-              <div className="grid md:grid-cols-12 gap-4 p-6">
-                <div className="md:col-span-7 relative">
-                  <div className="relative rounded-lg overflow-hidden">
-                    <img 
-                      src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7" 
-                      alt="Project Preview" 
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-background/50 group-hover:bg-background/30 transition-colors duration-300" />
+          <div className="space-y-32">
+            {projects.map((project, index) => (
+              <Card 
+                key={index}
+                className="glass-card group hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <div className={`grid md:grid-cols-12 gap-4 p-6 ${project.reversed ? 'md:rtl' : ''}`}>
+                  <div className="md:col-span-7 relative md:ltr">
+                    <div className="relative rounded-lg overflow-hidden h-[300px]">
+                      <img 
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-background/50 group-hover:bg-background/30 transition-colors duration-300" />
+                    </div>
+                  </div>
+                  <div className="md:col-span-5 md:px-6 md:ltr">
+                    <CardHeader className="p-0">
+                      <div className="flex items-center gap-2 mb-2">
+                        {project.icon}
+                        <CardDescription className="text-sm text-muted-foreground">
+                          Featured Project
+                        </CardDescription>
+                      </div>
+                      <CardTitle className="text-2xl font-bold">{project.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0 mt-4">
+                      <div className="glass-card p-6 rounded-lg mb-4 transform transition-all duration-300 hover:scale-[1.02]">
+                        <p className="text-muted-foreground">
+                          {project.description}
+                        </p>
+                      </div>
+                      <ul className="flex flex-wrap gap-3 text-sm text-muted-foreground mb-4">
+                        {project.tags.map((tag, tagIndex) => (
+                          <li 
+                            key={tagIndex}
+                            className="bg-muted px-3 py-1 rounded-full transition-colors duration-300 hover:bg-primary/10"
+                          >
+                            {tag}
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="flex gap-4">
+                        <Button variant="ghost" size="icon" asChild>
+                          <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                            <Github className="h-5 w-5" />
+                          </a>
+                        </Button>
+                        <Button variant="ghost" size="icon" asChild>
+                          <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                            <ExternalLink className="h-5 w-5" />
+                          </a>
+                        </Button>
+                      </div>
+                    </CardContent>
                   </div>
                 </div>
-                <div className="md:col-span-5 md:pl-6">
-                  <CardHeader className="p-0">
-                    <CardDescription className="text-sm text-muted-foreground">Featured Project</CardDescription>
-                    <CardTitle className="text-2xl font-bold">Project Title</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-0 mt-4">
-                    <div className="glass-card p-6 rounded-lg mb-4">
-                      <p className="text-muted-foreground">
-                        A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more.
-                        Available on Package Control, VS Code Marketplace, Atom Package Manager, and npm.
-                      </p>
-                    </div>
-                    <ul className="flex flex-wrap gap-3 text-sm text-muted-foreground mb-4">
-                      <li>VS Code</li>
-                      <li>Sublime Text</li>
-                      <li>Atom</li>
-                      <li>iTerm2</li>
-                    </ul>
-                    <div className="flex gap-4">
-                      <Button variant="ghost" size="icon" asChild>
-                        <a href="#" className="text-muted-foreground hover:text-foreground">
-                          <Github className="h-5 w-5" />
-                        </a>
-                      </Button>
-                      <Button variant="ghost" size="icon" asChild>
-                        <a href="#" className="text-muted-foreground hover:text-foreground">
-                          <ExternalLink className="h-5 w-5" />
-                        </a>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </div>
-              </div>
-            </Card>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
       <section className="py-20 px-6" id="contact">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex items-center gap-4 mb-12 justify-center">
@@ -163,7 +221,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="py-6 px-6 text-center">
         <p className="text-sm text-muted-foreground">Built with React, Tailwind CSS & shadcn/ui</p>
       </footer>
