@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, ChevronRight, Smartphone, Bot, Leaf, Cloud, ShoppingCart } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -65,27 +66,42 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <section className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent animate-pulse" />
         <div className={`max-w-4xl mx-auto z-10 ${isLoaded ? 'animate-fade-up' : 'opacity-0'}`}>
-          <span className="text-sm font-medium text-muted-foreground mb-6 block">Hi, my name is</span>
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-gradient">Vishal Kumar</h1>
-          <h2 className="text-3xl md:text-5xl font-bold text-muted-foreground mb-8">I build things for the web.</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mb-12">
+          <span className="text-sm font-medium text-muted-foreground mb-6 block hover:text-primary transition-colors">Hi, my name is</span>
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-gradient hover:scale-[1.02] transition-transform duration-300">Vishal Kumar</h1>
+          <h2 className="text-3xl md:text-5xl font-bold text-muted-foreground mb-8 hover:text-gradient transition-colors duration-500">I build things for the web.</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mb-12 hover:text-foreground transition-colors duration-300">
             I'm a software engineer specializing in building exceptional digital experiences.
             Currently, I'm focused on building accessible, human-centered products.
           </p>
-          <div className="flex gap-6">
-            <Button variant="outline" size="icon" asChild>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+          <div className="flex gap-6 animate-fade-in">
+            <Button 
+              variant="outline" 
+              size="icon" 
+              asChild
+              className="transform hover:scale-110 transition-all duration-300 hover:border-primary"
+            >
+              <a href="https://github.com/vishalkumar182" target="_blank" rel="noopener noreferrer">
                 <Github className="h-5 w-5" />
               </a>
             </Button>
-            <Button variant="outline" size="icon" asChild>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <Button 
+              variant="outline" 
+              size="icon" 
+              asChild
+              className="transform hover:scale-110 transition-all duration-300 hover:border-primary"
+            >
+              <a href="https://linkedin.com/in/vishal-kumar" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-5 w-5" />
               </a>
             </Button>
-            <Button variant="outline" size="icon" asChild>
+            <Button 
+              variant="outline" 
+              size="icon" 
+              asChild
+              className="transform hover:scale-110 transition-all duration-300 hover:border-primary"
+            >
               <a href="mailto:your@email.com">
                 <Mail className="h-5 w-5" />
               </a>
@@ -96,31 +112,31 @@ const Index = () => {
 
       <section className="py-20 px-6" id="about">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-4 mb-12">
-            <span className="text-muted-foreground">01.</span>
-            <h2 className="text-2xl font-bold">About Me</h2>
-            <Separator className="flex-grow" />
+          <div className="flex items-center gap-4 mb-12 group">
+            <span className="text-muted-foreground group-hover:text-primary transition-colors duration-300">01.</span>
+            <h2 className="text-2xl font-bold group-hover:text-gradient transition-colors duration-300">About Me</h2>
+            <Separator className="flex-grow group-hover:border-primary transition-colors duration-300" />
           </div>
-          <Card className="glass-card">
+          <Card className="glass-card transform hover:scale-[1.02] transition-all duration-500">
             <CardContent className="grid md:grid-cols-2 gap-12 p-6">
               <div>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-muted-foreground mb-4 hover:text-foreground transition-colors duration-300">
                   Hello! My name is Vishal Kumar and I enjoy creating things that live on the internet. 
                   My interest in web development started back in 2012 when I decided to try editing custom 
                   Tumblr themes — turns out hacking together a custom reblog button taught me a lot about HTML & CSS!
                 </p>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground hover:text-foreground transition-colors duration-300">
                   Fast-forward to today, and I've had the privilege of working at an advertising agency, 
                   a start-up, a huge corporation, and a student-led design studio.
                 </p>
               </div>
               <div className="space-y-4">
-                <h3 className="font-medium">Technologies I've been working with:</h3>
+                <h3 className="font-medium hover:text-gradient transition-colors duration-300">Technologies I've been working with:</h3>
                 <ul className="grid grid-cols-2 gap-2 text-muted-foreground">
                   {["JavaScript (ES6+)", "React", "Node.js", "TypeScript", "Tailwind CSS", "Next.js"].map((tech) => (
-                    <li key={tech} className="flex items-center gap-2">
-                      <ChevronRight className="h-4 w-4 text-primary" />
-                      {tech}
+                    <li key={tech} className="flex items-center gap-2 group/item">
+                      <ChevronRight className="h-4 w-4 text-primary transform group-hover/item:translate-x-1 transition-transform duration-300" />
+                      <span className="group-hover/item:text-foreground transition-colors duration-300">{tech}</span>
                     </li>
                   ))}
                 </ul>
@@ -132,21 +148,21 @@ const Index = () => {
 
       <section className="py-20 px-6" id="projects">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-4 mb-12">
-            <span className="text-muted-foreground">02.</span>
-            <h2 className="text-2xl font-bold">Some Things I've Built</h2>
-            <Separator className="flex-grow" />
+          <div className="flex items-center gap-4 mb-12 group">
+            <span className="text-muted-foreground group-hover:text-primary transition-colors duration-300">02.</span>
+            <h2 className="text-2xl font-bold group-hover:text-gradient transition-colors duration-300">Some Things I've Built</h2>
+            <Separator className="flex-grow group-hover:border-primary transition-colors duration-300" />
           </div>
           <div className="space-y-32">
             {projects.map((project, index) => (
               <Card 
                 key={index}
-                className="glass-card group hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                className="glass-card group hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2"
               >
                 <div className={`grid md:grid-cols-12 gap-4 p-6 ${project.reversed ? 'md:rtl' : ''}`}>
                   <div className="md:col-span-7 relative md:ltr">
-                    <div className="h-48 flex items-center justify-center glass-card rounded-lg group-hover:scale-105 transition-transform duration-500">
-                      <div className="text-6xl text-primary/50 group-hover:text-primary/70 transition-colors duration-300">
+                    <div className="h-48 flex items-center justify-center glass-card rounded-lg group-hover:scale-105 transition-all duration-500 group-hover:shadow-primary/20 group-hover:shadow-lg">
+                      <div className="text-6xl text-primary/50 group-hover:text-primary/70 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
                         {project.icon}
                       </div>
                     </div>
@@ -155,15 +171,15 @@ const Index = () => {
                     <CardHeader className="p-0">
                       <div className="flex items-center gap-2 mb-2">
                         {project.icon}
-                        <CardDescription className="text-sm text-muted-foreground animate-fade-in">
+                        <CardDescription className="text-sm text-muted-foreground animate-fade-in group-hover:text-primary transition-colors duration-300">
                           Featured Project
                         </CardDescription>
                       </div>
-                      <CardTitle className="text-2xl font-bold animate-fade-up">{project.title}</CardTitle>
+                      <CardTitle className="text-2xl font-bold animate-fade-up group-hover:text-gradient transition-colors duration-300">{project.title}</CardTitle>
                     </CardHeader>
                     <CardContent className="p-0 mt-4">
-                      <div className="glass-card p-6 rounded-lg mb-4 transform transition-all duration-300 hover:scale-[1.02] animate-fade-up">
-                        <p className="text-muted-foreground">
+                      <div className="glass-card p-6 rounded-lg mb-4 transform transition-all duration-500 hover:scale-[1.02] animate-fade-up group-hover:shadow-primary/10 group-hover:shadow-lg">
+                        <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                           {project.description}
                         </p>
                       </div>
@@ -171,7 +187,7 @@ const Index = () => {
                         {project.tags.map((tag, tagIndex) => (
                           <li 
                             key={tagIndex}
-                            className="bg-muted px-3 py-1 rounded-full transition-colors duration-300 hover:bg-primary/10"
+                            className="bg-muted px-3 py-1 rounded-full transition-all duration-300 hover:bg-primary/10 hover:scale-105 hover:text-foreground"
                           >
                             {tag}
                           </li>
@@ -179,12 +195,12 @@ const Index = () => {
                       </ul>
                       <div className="flex gap-4">
                         <Button variant="ghost" size="icon" asChild>
-                          <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                          <a href="#" className="text-muted-foreground hover:text-foreground transition-colors duration-300 transform hover:scale-110">
                             <Github className="h-5 w-5" />
                           </a>
                         </Button>
                         <Button variant="ghost" size="icon" asChild>
-                          <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                          <a href="#" className="text-muted-foreground hover:text-foreground transition-colors duration-300 transform hover:scale-110">
                             <ExternalLink className="h-5 w-5" />
                           </a>
                         </Button>
