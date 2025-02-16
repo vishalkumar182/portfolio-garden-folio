@@ -1,9 +1,10 @@
-
 import { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, ChevronRight, Smartphone, Bot, Leaf, Cloud, ShoppingCart } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import Navigation from '@/components/Navigation';
+import WIPBanner from '@/components/WIPBanner';
 
 const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -65,7 +66,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <section className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
+      <Navigation />
+      
+      <section className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden" id="home">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent animate-pulse" />
         <div className={`max-w-4xl mx-auto z-10 ${isLoaded ? 'animate-fade-up' : 'opacity-0'}`}>
           <span className="text-sm font-medium text-muted-foreground mb-6 block hover:text-primary transition-colors">Hi, my name is</span>
@@ -237,6 +240,8 @@ const Index = () => {
       <footer className="py-6 px-6 text-center">
         <p className="text-sm text-muted-foreground">Built with React, Tailwind CSS & shadcn/ui</p>
       </footer>
+
+      <WIPBanner />
     </div>
   );
 };
