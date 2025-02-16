@@ -1,5 +1,6 @@
+
 import { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, ChevronRight, Smartphone, Bot, Leaf, Cloud, ShoppingCart } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, ChevronRight, Smartphone, Bot, Leaf, Cloud, ShoppingCart, Brain, Globe, Database, Code } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -73,10 +74,11 @@ const Index = () => {
         <div className={`max-w-4xl mx-auto z-10 ${isLoaded ? 'animate-fade-up' : 'opacity-0'}`}>
           <span className="text-sm font-medium text-muted-foreground mb-6 block hover:text-primary transition-colors">Hi, my name is</span>
           <h1 className="text-5xl md:text-7xl font-bold mb-4 text-gradient hover:scale-[1.02] transition-transform duration-300">Vishal Kumar</h1>
-          <h2 className="text-3xl md:text-5xl font-bold text-muted-foreground mb-8 hover:text-gradient transition-colors duration-500">I build things for the web.</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-muted-foreground mb-8 hover:text-gradient transition-colors duration-500">AI Developer & Problem Solver</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mb-12 hover:text-foreground transition-colors duration-300">
-            I'm a software engineer specializing in building exceptional digital experiences.
-            Currently, I'm focused on building accessible, human-centered products.
+            I'm an AI developer passionate about leveraging artificial intelligence to solve real-world problems 
+            and create impactful solutions. I specialize in building intelligent applications that enhance user 
+            experiences and streamline processes.
           </p>
           <div className="flex gap-6 animate-fade-in">
             <Button 
@@ -122,27 +124,58 @@ const Index = () => {
           </div>
           <Card className="glass-card transform hover:scale-[1.02] transition-all duration-500">
             <CardContent className="grid md:grid-cols-2 gap-12 p-6">
-              <div>
-                <p className="text-muted-foreground mb-4 hover:text-foreground transition-colors duration-300">
-                  Hello! My name is Vishal Kumar and I enjoy creating things that live on the internet. 
-                  My interest in web development started back in 2012 when I decided to try editing custom 
-                  Tumblr themes — turns out hacking together a custom reblog button taught me a lot about HTML & CSS!
-                </p>
-                <p className="text-muted-foreground hover:text-foreground transition-colors duration-300">
-                  Fast-forward to today, and I've had the privilege of working at an advertising agency, 
-                  a start-up, a huge corporation, and a student-led design studio.
-                </p>
-              </div>
-              <div className="space-y-4">
-                <h3 className="font-medium hover:text-gradient transition-colors duration-300">Technologies I've been working with:</h3>
-                <ul className="grid grid-cols-2 gap-2 text-muted-foreground">
-                  {["JavaScript (ES6+)", "React", "Node.js", "TypeScript", "Tailwind CSS", "Next.js"].map((tech) => (
-                    <li key={tech} className="flex items-center gap-2 group/item">
-                      <ChevronRight className="h-4 w-4 text-primary transform group-hover/item:translate-x-1 transition-transform duration-300" />
-                      <span className="group-hover/item:text-foreground transition-colors duration-300">{tech}</span>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xl font-bold mb-4 text-gradient">My Vision & Brand</h3>
+                  <p className="text-muted-foreground hover:text-foreground transition-colors duration-300">
+                    I believe AI should be a solution provider, not just a trend. My goal is to bridge the gap 
+                    between AI and practical applications, making technology accessible, efficient, and impactful.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-4 text-gradient">What I Do</h3>
+                  <ul className="space-y-3 text-muted-foreground">
+                    <li className="flex items-center gap-2 hover:text-foreground transition-colors duration-300">
+                      <Brain className="h-5 w-5 text-primary" />
+                      AI-powered web & mobile solutions
                     </li>
+                    <li className="flex items-center gap-2 hover:text-foreground transition-colors duration-300">
+                      <Bot className="h-5 w-5 text-primary" />
+                      Chatbots & automation
+                    </li>
+                    <li className="flex items-center gap-2 hover:text-foreground transition-colors duration-300">
+                      <Globe className="h-5 w-5 text-primary" />
+                      AI-driven image recognition
+                    </li>
+                    <li className="flex items-center gap-2 hover:text-foreground transition-colors duration-300">
+                      <Database className="h-5 w-5 text-primary" />
+                      Optimized & scalable AI applications
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="space-y-6">
+                <h3 className="text-xl font-bold mb-4 text-gradient">Technologies I Work With</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    "Python", "JavaScript", "Flutter", "React",
+                    "Next.js", "MongoDB", "Firebase", "MySQL",
+                    "TensorFlow", "PyTorch", "OpenAI", "Gemini"
+                  ].map((tech) => (
+                    <div key={tech} className="flex items-center gap-2 group/item">
+                      <Code className="h-4 w-4 text-primary transform group-hover/item:translate-x-1 transition-transform duration-300" />
+                      <span className="text-muted-foreground group-hover/item:text-foreground transition-colors duration-300">
+                        {tech}
+                      </span>
+                    </div>
                   ))}
-                </ul>
+                </div>
+                <div className="mt-8">
+                  <p className="text-muted-foreground italic hover:text-foreground transition-colors duration-300">
+                    "I stand for innovation, efficiency, and user-centric AI development, shaping a smarter 
+                    future through intelligent solutions."
+                  </p>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -219,18 +252,19 @@ const Index = () => {
 
       <section className="py-20 px-6" id="contact">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="flex items-center gap-4 mb-12 justify-center">
-            <span className="text-muted-foreground">03.</span>
-            <h2 className="text-2xl font-bold">Get In Touch</h2>
+          <div className="flex items-center gap-4 mb-12 justify-center group">
+            <span className="text-muted-foreground group-hover:text-primary transition-colors duration-300">03.</span>
+            <h2 className="text-2xl font-bold group-hover:text-gradient transition-colors duration-300">Get In Touch</h2>
           </div>
-          <Card className="glass-card max-w-lg mx-auto">
+          <Card className="glass-card max-w-lg mx-auto transform hover:scale-[1.02] transition-all duration-500">
             <CardContent className="p-6">
-              <p className="text-muted-foreground mb-8">
-                Although I'm not currently looking for any new opportunities, my inbox is always open. 
-                Whether you have a question or just want to say hi, I'll try my best to get back to you!
+              <p className="text-muted-foreground mb-8 hover:text-foreground transition-colors duration-300">
+                Looking to collaborate on AI-powered solutions or have a project in mind? 
+                I'm always interested in hearing about new opportunities and challenges where 
+                AI can make a difference. Let's connect and discuss how we can work together!
               </p>
-              <Button variant="outline" asChild>
-                <a href="mailto:your@email.com">Say Hello</a>
+              <Button variant="outline" asChild className="hover:scale-105 transition-transform duration-300">
+                <a href="mailto:your@email.com">Start a Conversation</a>
               </Button>
             </CardContent>
           </Card>
@@ -238,7 +272,7 @@ const Index = () => {
       </section>
 
       <footer className="py-6 px-6 text-center">
-        <p className="text-sm text-muted-foreground">Built with React, Tailwind CSS & shadcn/ui</p>
+        <p className="text-sm text-muted-foreground">Built with React, Tailwind CSS & AI-powered components</p>
       </footer>
 
       <WIPBanner />
