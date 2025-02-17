@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Github, Linkedin, MapPin, Bot, ShoppingCart, Home, Ticket, Leaf, Twitter, Cloud } from 'lucide-react';
+import { Github, Linkedin, MapPin, Bot, ShoppingCart, Home, Ticket, Leaf, Twitter, Cloud, Code, Server, Smartphone, Brain } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -67,6 +67,33 @@ const Index = () => {
     }
   ];
 
+  const skillCategories = [
+    {
+      title: "Frontend Development",
+      icon: Code,
+      skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML/CSS", "JavaScript"],
+      color: "from-blue-500 to-cyan-500"
+    },
+    {
+      title: "Backend Development",
+      icon: Server,
+      skills: ["Node.js", "MongoDB", "MySQL", "Firebase", "Express.js", "REST APIs"],
+      color: "from-green-500 to-emerald-500"
+    },
+    {
+      title: "Mobile Development",
+      icon: Smartphone,
+      skills: ["Flutter", "Dart", "React Native", "Mobile UI/UX"],
+      color: "from-purple-500 to-pink-500"
+    },
+    {
+      title: "AI & Machine Learning",
+      icon: Brain,
+      skills: ["Python", "TensorFlow", "Gemini API", "Natural Language Processing", "Computer Vision"],
+      color: "from-orange-500 to-red-500"
+    }
+  ];
+
   useEffect(() => {
     setIsLoaded(true);
   }, []);
@@ -118,11 +145,39 @@ const Index = () => {
               <p className="text-lg">Data Science Enthusiast</p>
               <p className="text-lg">Learning to develop AI</p>
             </div>
-            <div className="space-y-4">
-              <h3 className="text-xl font-bold">Technologies:</h3>
-              <p className="text-muted-foreground">
-                Python | JavaScript | Flutter | React | Next.js | MongoDB | Firebase | MySQL
-              </p>
+            
+            <div className="space-y-6">
+              <h3 className="text-xl font-bold text-gradient">Skills & Technologies</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {skillCategories.map((category, index) => {
+                  const Icon = category.icon;
+                  return (
+                    <Card 
+                      key={index}
+                      className="glass-card p-6 hover:scale-[1.02] transition-all duration-300"
+                    >
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-3">
+                          <div className={`p-2 rounded-md bg-gradient-to-br ${category.color} bg-opacity-10`}>
+                            <Icon className="h-5 w-5 text-white" />
+                          </div>
+                          <h4 className="text-lg font-semibold">{category.title}</h4>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {category.skills.map((skill, skillIndex) => (
+                            <span
+                              key={skillIndex}
+                              className={`text-xs px-2 py-1 rounded-full bg-gradient-to-r ${category.color} bg-opacity-10 text-white`}
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </Card>
+                  );
+                })}
+              </div>
             </div>
           </section>
         );
