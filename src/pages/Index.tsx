@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Github, Linkedin, MapPin, Bot, ShoppingCart, Home, Ticket, Leaf, Twitter, Cloud } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -9,7 +8,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/components/ui/use-toast";
 import Navigation from '@/components/Navigation';
-import WIPBanner from '@/components/WIPBanner';
 
 const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -75,7 +73,6 @@ const Index = () => {
 
   const onSubmit = async (data: any) => {
     try {
-      // Here you would typically send the form data to your backend
       console.log('Form data:', data);
       toast({
         title: "Message sent!",
@@ -96,7 +93,7 @@ const Index = () => {
       case 'home':
         return (
           <section className={`space-y-8 ${isLoaded ? 'animate-fade-up' : 'opacity-0'}`}>
-            <h1 className="text-4xl md:text-6xl font-bold">Vishal Kumar</h1>
+            <h1 className="text-4xl md:text-6xl font-bold text-gradient">Vishal Kumar</h1>
             <p className="text-lg md:text-xl text-muted-foreground">AI Developer & Problem Solver</p>
             <p className="text-lg text-muted-foreground max-w-2xl">
               I'm passionate about leveraging AI to solve real-world problems and create impactful solutions.
@@ -109,7 +106,7 @@ const Index = () => {
         return (
           <section className="space-y-6 animate-fade-up">
             <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold">About myself</h2>
+              <h2 className="text-2xl font-bold text-gradient">About myself</h2>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <MapPin className="h-5 w-5" />
                 <span>India</span>
@@ -134,7 +131,7 @@ const Index = () => {
         return (
           <section className="space-y-8 animate-fade-up">
             <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold">My Projects</h2>
+              <h2 className="text-2xl font-bold text-gradient">My Projects</h2>
               <Button variant="outline" asChild>
                 <a 
                   href="https://github.com/vishalkumar182" 
@@ -188,7 +185,7 @@ const Index = () => {
       case 'contact':
         return (
           <section className="space-y-6 animate-fade-up">
-            <h2 className="text-2xl font-bold">Get In Touch</h2>
+            <h2 className="text-2xl font-bold text-gradient">Get In Touch</h2>
             <Card className="glass-card p-6">
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-4">
@@ -226,12 +223,6 @@ const Index = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Input
-                      placeholder="Subject"
-                      {...register('subject', { required: true })}
-                    />
-                  </div>
-                  <div className="space-y-2">
                     <Textarea
                       placeholder="Your Message"
                       className="min-h-[120px]"
@@ -262,8 +253,6 @@ const Index = () => {
           {renderContent()}
         </div>
       </main>
-
-      <WIPBanner />
     </div>
   );
 };
