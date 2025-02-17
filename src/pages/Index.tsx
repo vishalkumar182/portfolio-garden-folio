@@ -1,15 +1,21 @@
 
 import { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, MapPin, Bot, ShoppingCart, Home, Ticket, Leaf, Twitter, Cloud } from 'lucide-react';
+import { Github, Linkedin, MapPin, Bot, ShoppingCart, Home, Ticket, Leaf, Twitter, Cloud } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useForm } from "react-hook-form";
+import { useToast } from "@/components/ui/use-toast";
 import Navigation from '@/components/Navigation';
 import WIPBanner from '@/components/WIPBanner';
 
 const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const { toast } = useToast();
+  const { register, handleSubmit, reset, formState: { isSubmitting } } = useForm();
 
   const projects = [
     {
@@ -66,6 +72,24 @@ const Index = () => {
   useEffect(() => {
     setIsLoaded(true);
   }, []);
+
+  const onSubmit = async (data: any) => {
+    try {
+      // Here you would typically send the form data to your backend
+      console.log('Form data:', data);
+      toast({
+        title: "Message sent!",
+        description: "Thanks for reaching out. I'll get back to you soon.",
+      });
+      reset();
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "There was a problem sending your message. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
 
   const renderContent = () => {
     switch (activeSection) {
@@ -166,26 +190,62 @@ const Index = () => {
           <section className="space-y-6 animate-fade-up">
             <h2 className="text-2xl font-bold">Get In Touch</h2>
             <Card className="glass-card p-6">
-              <p className="text-muted-foreground mb-6">
-                Looking to collaborate on AI-powered solutions or have a project in mind? 
-                Let's connect and discuss how we can work together!
-              </p>
-              <div className="flex gap-4">
-                <Button variant="outline" asChild>
-                  <a href="https://github.com/vishalkumar182" target="_blank" rel="noopener noreferrer">
-                    <Github className="h-5 w-5 mr-2" /> GitHub
-                  </a>
-                </Button>
-                <Button variant="outline" asChild>
-                  <a href="https://linkedin.com/in/vishal-kumar" target="_blank" rel="noopener noreferrer">
-                    <Linkedin className="h-5 w-5 mr-2" /> LinkedIn
-                  </a>
-                </Button>
-                <Button variant="outline" asChild>
-                  <a href="mailto:your@email.com">
-                    <Mail className="h-5 w-5 mr-2" /> Email
-                  </a>
-                </Button>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold">Let's Connect</h3>
+                  <p className="text-muted-foreground">
+                    Looking to collaborate on AI-powered solutions or have a project in mind? 
+                    Fill out the form or reach out through social media.
+                  </p>
+                  <div className="flex gap-4">
+                    <Button variant="outline" size="icon" asChild>
+                      <a href="https://github.com/vishalkumar182" target="_blank" rel="noopener noreferrer">
+                        <Github className="h-5 w-5" />
+                      </a>
+                    </Button>
+                    <Button variant="outline" size="icon" asChild>
+                      <a href="https://linkedin.com/in/vishal-kumar" target="_blank" rel="noopener noreferrer">
+                        <Linkedin className="h-5 w-5" />
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                  <div className="space-y-2">
+                    <Input
+                      placeholder="Your Name"
+                      {...register('name', { required: true })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Input
+                      type="email"
+                      placeholder="Your Email"
+                      {...register('email', { required: true })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Input
+                      placeholder="Subject"
+                      {...register('subject', { required: true })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Textarea
+                      placeholder="Your Message"
+                      className="min-h-[120px]"
+                      {...register('message', { required: true })}
+                    />
+                  </div>
+                  <Button 
+                    type="submit" 
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                  </Button>
+                </form>
               </div>
             </Card>
           </section>
