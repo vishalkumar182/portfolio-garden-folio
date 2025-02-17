@@ -121,15 +121,25 @@ const Index = () => {
         return (
           <section className={`space-y-12 ${isLoaded ? 'animate-fade-up' : 'opacity-0'}`}>
             <div className="space-y-6">
-              <h1 className="text-4xl md:text-6xl font-bold text-gradient">Vishal Kumar</h1>
-              <p className="text-lg md:text-xl text-muted-foreground">App, Web & AI Integrated Developer</p>
-              <p className="text-lg text-muted-foreground max-w-2xl">
-                I'm passionate about leveraging AI to solve real-world problems and create impactful solutions.
-                I specialize in building intelligent applications that enhance user experiences and streamline processes.
-              </p>
+              <div className="overflow-hidden">
+                <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-fade-in relative">
+                  <span className="inline-block animate-[slide-down_0.5s_ease-out]">Vishal Kumar</span>
+                </h1>
+              </div>
+              <div className="overflow-hidden">
+                <p className="text-lg md:text-xl text-muted-foreground animate-[slide-up_0.5s_ease-out_0.2s] opacity-0 animate-fill-forwards">
+                  App, Web & AI Integrated Developer
+                </p>
+              </div>
+              <div className="overflow-hidden">
+                <p className="text-lg text-muted-foreground max-w-2xl animate-[fade-in_0.5s_ease-out_0.4s] opacity-0 animate-fill-forwards">
+                  I'm passionate about leveraging AI to solve real-world problems and create impactful solutions.
+                  I specialize in building intelligent applications that enhance user experiences and streamline processes.
+                </p>
+              </div>
             </div>
             
-            <Card className="glass-card p-6 border-l-4 border-l-blue-500">
+            <Card className="glass-card p-6 border-l-4 border-l-blue-500 animate-[scale-in_0.5s_ease-out_0.6s] opacity-0 animate-fill-forwards">
               <blockquote className="space-y-2">
                 <p className="text-lg italic text-muted-foreground">
                   "In the era of AI, the most valuable skill is not just coding, but understanding how to integrate 
@@ -140,27 +150,6 @@ const Index = () => {
                 </footer>
               </blockquote>
             </Card>
-
-            <div className="flex flex-wrap gap-4">
-              <Card className="glass-card p-4 flex-1 min-w-[250px]">
-                <div className="text-center space-y-2">
-                  <h3 className="text-xl font-semibold text-gradient">10+</h3>
-                  <p className="text-muted-foreground">Projects Completed</p>
-                </div>
-              </Card>
-              <Card className="glass-card p-4 flex-1 min-w-[250px]">
-                <div className="text-center space-y-2">
-                  <h3 className="text-xl font-semibold text-gradient">3+</h3>
-                  <p className="text-muted-foreground">Years Experience</p>
-                </div>
-              </Card>
-              <Card className="glass-card p-4 flex-1 min-w-[250px]">
-                <div className="text-center space-y-2">
-                  <h3 className="text-xl font-semibold text-gradient">5+</h3>
-                  <p className="text-muted-foreground">AI Integrations</p>
-                </div>
-              </Card>
-            </div>
           </section>
         );
       
