@@ -15,6 +15,33 @@ const Index = () => {
   const { toast } = useToast();
   const { register, handleSubmit, reset, formState: { isSubmitting } } = useForm();
 
+  const skillCategories = [
+    {
+      title: "Frontend Development",
+      icon: Code,
+      skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML/CSS", "JavaScript"],
+      color: "from-blue-500 to-cyan-500"
+    },
+    {
+      title: "Backend Development",
+      icon: Server,
+      skills: ["Node.js", "MongoDB", "MySQL", "Firebase", "Express.js", "REST APIs"],
+      color: "from-green-500 to-emerald-500"
+    },
+    {
+      title: "Mobile Development",
+      icon: Smartphone,
+      skills: ["Flutter", "Dart", "Mobile UI/UX"],
+      color: "from-purple-500 to-pink-500"
+    },
+    {
+      title: "AI & Machine Learning",
+      icon: Brain,
+      skills: ["Python", "TensorFlow", "Gemini API", "Natural Language Processing", "Computer Vision"],
+      color: "from-orange-500 to-red-500"
+    }
+  ];
+
   const projects = [
     {
       title: "AI Chatbot",
@@ -67,33 +94,6 @@ const Index = () => {
     }
   ];
 
-  const skillCategories = [
-    {
-      title: "Frontend Development",
-      icon: Code,
-      skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML/CSS", "JavaScript"],
-      color: "from-blue-500 to-cyan-500"
-    },
-    {
-      title: "Backend Development",
-      icon: Server,
-      skills: ["Node.js", "MongoDB", "MySQL", "Firebase", "Express.js", "REST APIs"],
-      color: "from-green-500 to-emerald-500"
-    },
-    {
-      title: "Mobile Development",
-      icon: Smartphone,
-      skills: ["Flutter", "Dart", "React Native", "Mobile UI/UX"],
-      color: "from-purple-500 to-pink-500"
-    },
-    {
-      title: "AI & Machine Learning",
-      icon: Brain,
-      skills: ["Python", "TensorFlow", "Gemini API", "Natural Language Processing", "Computer Vision"],
-      color: "from-orange-500 to-red-500"
-    }
-  ];
-
   useEffect(() => {
     setIsLoaded(true);
   }, []);
@@ -119,13 +119,48 @@ const Index = () => {
     switch (activeSection) {
       case 'home':
         return (
-          <section className={`space-y-8 ${isLoaded ? 'animate-fade-up' : 'opacity-0'}`}>
-            <h1 className="text-4xl md:text-6xl font-bold text-gradient">Vishal Kumar</h1>
-            <p className="text-lg md:text-xl text-muted-foreground">AI Developer & Problem Solver</p>
-            <p className="text-lg text-muted-foreground max-w-2xl">
-              I'm passionate about leveraging AI to solve real-world problems and create impactful solutions.
-              I specialize in building intelligent applications that enhance user experiences and streamline processes.
-            </p>
+          <section className={`space-y-12 ${isLoaded ? 'animate-fade-up' : 'opacity-0'}`}>
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-6xl font-bold text-gradient">Vishal Kumar</h1>
+              <p className="text-lg md:text-xl text-muted-foreground">App, Web & AI Integrated Developer</p>
+              <p className="text-lg text-muted-foreground max-w-2xl">
+                I'm passionate about leveraging AI to solve real-world problems and create impactful solutions.
+                I specialize in building intelligent applications that enhance user experiences and streamline processes.
+              </p>
+            </div>
+            
+            <Card className="glass-card p-6 border-l-4 border-l-blue-500">
+              <blockquote className="space-y-2">
+                <p className="text-lg italic text-muted-foreground">
+                  "In the era of AI, the most valuable skill is not just coding, but understanding how to integrate 
+                  intelligence into applications that make a real difference."
+                </p>
+                <footer className="text-sm text-right text-muted-foreground">
+                  - My Development Philosophy
+                </footer>
+              </blockquote>
+            </Card>
+
+            <div className="flex flex-wrap gap-4">
+              <Card className="glass-card p-4 flex-1 min-w-[250px]">
+                <div className="text-center space-y-2">
+                  <h3 className="text-xl font-semibold text-gradient">10+</h3>
+                  <p className="text-muted-foreground">Projects Completed</p>
+                </div>
+              </Card>
+              <Card className="glass-card p-4 flex-1 min-w-[250px]">
+                <div className="text-center space-y-2">
+                  <h3 className="text-xl font-semibold text-gradient">3+</h3>
+                  <p className="text-muted-foreground">Years Experience</p>
+                </div>
+              </Card>
+              <Card className="glass-card p-4 flex-1 min-w-[250px]">
+                <div className="text-center space-y-2">
+                  <h3 className="text-xl font-semibold text-gradient">5+</h3>
+                  <p className="text-muted-foreground">AI Integrations</p>
+                </div>
+              </Card>
+            </div>
           </section>
         );
       
@@ -142,7 +177,7 @@ const Index = () => {
             <Separator className="bg-blue-500/30" />
             <div className="space-y-4">
               <p className="text-lg">AI Developer & Problem Solver</p>
-              <p className="text-lg">Data Science Enthusiast</p>
+              <p className="text-lg">App, Web & AI Integrated Developer</p>
               <p className="text-lg">Learning to develop AI</p>
             </div>
             
