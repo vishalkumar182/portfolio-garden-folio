@@ -280,7 +280,7 @@ const Index = () => {
                       </a>
                     </Button>
                     <Button variant="outline" size="icon" asChild>
-                      <a href="https://linkedin.com/in/vishal-kumar" target="_blank" rel="noopener noreferrer">
+                      <a href="https://www.linkedin.com/in/vishal-kumar-563661215?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">
                         <Linkedin className="h-5 w-5" />
                       </a>
                     </Button>
