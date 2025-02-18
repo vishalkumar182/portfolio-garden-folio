@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Github, Linkedin, MapPin, Bot, ShoppingCart, Home, Ticket, Leaf, Twitter, Cloud, Code, Server, Smartphone, Brain } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -141,12 +142,11 @@ const Index = () => {
             
             <Card className="glass-card p-6 border-l-4 border-l-blue-500 animate-scale-in">
               <blockquote className="space-y-2">
-                <p className="text-lg italic text-muted-foreground">
-                  "In the era of AI, the most valuable skill is not just coding, but understanding how to integrate 
-                  intelligence into applications that make a real difference."
+                <p className="text-lg italic text-muted-foreground tracking-wider uppercase">
+                  "ʙᴇ ᴋɪɴᴅ, ᴡᴏʀᴋ ʜᴀʀᴅ, ꜱᴛᴀʏ ʜᴜᴍʙʟᴇ."
                 </p>
                 <footer className="text-sm text-right text-muted-foreground">
-                  - My Development Philosophy
+                  - My Life Philosophy
                 </footer>
               </blockquote>
             </Card>
