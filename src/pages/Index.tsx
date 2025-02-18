@@ -122,24 +122,24 @@ const Index = () => {
           <section className={`space-y-12 ${isLoaded ? 'animate-fade-up' : 'opacity-0'}`}>
             <div className="space-y-6">
               <div className="overflow-hidden">
-                <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-fade-in relative">
-                  <span className="inline-block animate-[slide-down_0.5s_ease-out]">Vishal Kumar</span>
+                <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                  <span className="inline-block animate-slide-down">Vishal Kumar</span>
                 </h1>
               </div>
               <div className="overflow-hidden">
-                <p className="text-lg md:text-xl text-muted-foreground animate-[slide-up_0.5s_ease-out_0.2s] opacity-0 animate-fill-forwards">
+                <p className="text-lg md:text-xl text-muted-foreground animate-slide-up">
                   App, Web & AI Integrated Developer
                 </p>
               </div>
               <div className="overflow-hidden">
-                <p className="text-lg text-muted-foreground max-w-2xl animate-[fade-in_0.5s_ease-out_0.4s] opacity-0 animate-fill-forwards">
+                <p className="text-lg text-muted-foreground max-w-2xl animate-fade-in">
                   I'm passionate about leveraging AI to solve real-world problems and create impactful solutions.
                   I specialize in building intelligent applications that enhance user experiences and streamline processes.
                 </p>
               </div>
             </div>
             
-            <Card className="glass-card p-6 border-l-4 border-l-blue-500 animate-[scale-in_0.5s_ease-out_0.6s] opacity-0 animate-fill-forwards">
+            <Card className="glass-card p-6 border-l-4 border-l-blue-500 animate-scale-in">
               <blockquote className="space-y-2">
                 <p className="text-lg italic text-muted-foreground">
                   "In the era of AI, the most valuable skill is not just coding, but understanding how to integrate 

@@ -106,6 +106,14 @@ export default {
             transform: "scale(1)",
           },
         },
+        "spin": {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "100%": {
+            transform: "rotate(360deg)",
+          },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.5s ease-out",
@@ -113,6 +121,7 @@ export default {
         "slide-up": "slide-up 0.5s ease-out",
         "slide-down": "slide-down 0.5s ease-out",
         "scale-in": "scale-in 0.5s ease-out",
+        "spin": "spin 20s linear infinite",
       },
     },
   },
